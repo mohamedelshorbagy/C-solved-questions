@@ -12,8 +12,6 @@ char * my_strtok(char * str, char *comp)
 	static int pos;
 	static char * s;	
 	int i = 0, start = pos;
-		cout << "Pos At the Beginning : " << pos << endl;
-		cout << "Start At the Beginning : " << start << endl;
 
 	if(str!=NULL)
 		s = str;
@@ -29,19 +27,13 @@ char * my_strtok(char * str, char *comp)
 			{
 				s[pos] = '\0';
 				pos = pos+1;				
-				cout << "Pos Before If : " << pos << endl;
-				cout << "Start Before If : " << start << endl;
 				if(s[start] != '\0') {
-					cout << "Pos Inside If : " << pos << endl;
-					cout << "Start Inside If : " << start << endl;
 					return (&s[start]);
                 }
 				else
 				{
 					
 					start = pos;
-					cout << "Pos Inside Else : " << pos << endl;
-					cout << "Start Inside Else : " << start << endl;
 					pos--;
 					break;
 				}
@@ -51,8 +43,6 @@ char * my_strtok(char * str, char *comp)
 		pos++;		
 	}
     /* This Part is Activated when the string at the end ( '\0' ) */
-	cout << "Pos After While : " << pos << endl;
-	cout << "Start After While : " << start << endl;
 	s[pos] = '\0';
 	if(s[start] == '\0') {
 		return NULL;
@@ -71,8 +61,8 @@ int main() {
  static int x; // X is Initialized with ( Zero )
 
 
-char s[] = "Implementation of Strtok Function()The Second Delim.;The Third Delim-This is the Fourth Sentence";
-char delim[] = ",;"; // Delims ==> [ (' ')  , (,) , (;) ]
+char s[] = "Implementation of Strtok Function,The Second Delim.;The Third Delim";
+char delim[] = ",;"; // Delims ==> [  (,) , (;) ]
 
 char * p = my_strtok(s , delim);
 
@@ -80,8 +70,7 @@ char * p = my_strtok(s , delim);
 
 while(p != NULL) {
     cout << p << endl;
-	cout << "###############################" << endl;
-    p = my_strtok(NULL, "-");
+    p = my_strtok(NULL, delim);
 }
 
 
