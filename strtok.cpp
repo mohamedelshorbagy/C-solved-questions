@@ -11,7 +11,7 @@ char * my_strtok(char * str, char *comp)
 {
 	static int pos;
 	static char * s;	
-	int i = 0, start = pos;
+	int start = pos;
 
 	if(str!=NULL)
 		s = str;
