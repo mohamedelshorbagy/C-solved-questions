@@ -2,6 +2,7 @@
 #include <cmath>
 #include "stdio.h"
 #include <cmath>
+#include <stdlib.h>
 using namespace std;
 
 bool isDigit(char x) {
@@ -24,8 +25,10 @@ double my_atof(char * c) {
         }
         if(c[i] == '.') {
             for(int j = i + 1;c[j] != '\0' ; j++) {
-                floatPointResult = (floatPointResult * 10) + (c[j] - '0');
-                floatIncrement++;
+                if(isDigit(c[j])) {
+                    floatPointResult = (floatPointResult * 10) + (c[j] - '0');
+                    floatIncrement++;
+                }
             }
             
             result = result + ((pow(10,-floatIncrement) * floatPointResult));
@@ -54,6 +57,10 @@ int main()
     cout << my_atof("12.27") << endl;
     cout << my_atof("12.27") + 2.5 << endl;
     cout << my_atof("12.27") + 0.2 << endl;
+
+    cout << my_atof("5060") << endl;
+    cout << my_atof("50aaaa60") << endl;
+    cout << my_atof("1.a2aaa2aa5a") << endl;
     
 
 
