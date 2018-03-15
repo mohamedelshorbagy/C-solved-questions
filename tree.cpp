@@ -181,14 +181,14 @@ Exp *strToExp(string &str)
     return new Term("Wrong"); //never
 }
 
-int main()
-{
+// int main()
+// {
 
-    string expression = "2 + 3 * 3";
-    cout << "Expression : " << expression << endl;
-    expression.erase(remove_if(expression.begin(), expression.end(), ::isspace), expression.end());
-    Exp *prefixExpression = strToExp(expression);
-    string prefix;
-    prefix += prefixExpression->print();
-    cout << "Prefix Expression : " << prefix << endl;
-}
+//     string expression = "2 + 3 * 3";
+//     cout << "Expression : " << expression << endl;
+//     expression.erase(remove_if(expression.begin(), expression.end(), ::isspace), expression.end());
+//     Exp *prefixExpression = strToExp(expression);
+//     string prefix;
+//     prefix += prefixExpression->print();
+//     cout << "Prefix Expression : " << prefix << endl;
+// }
